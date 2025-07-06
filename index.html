@@ -1,1 +1,110 @@
-# cyliustack.github.io
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinosaur Hunter - WebGL Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        #gameContainer {
+            position: relative;
+            border: 3px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        
+        #gameCanvas {
+            display: block;
+            background: #000;
+        }
+        
+        #ui {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            font-size: 18px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            z-index: 10;
+        }
+        
+        #gameOver {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+            z-index: 20;
+        }
+        
+        #gameOver h2 {
+            margin: 0 0 20px 0;
+            color: #ff4444;
+        }
+        
+        #gameOver button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        #gameOver button:hover {
+            background: #45a049;
+        }
+        
+        #instructions {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            font-size: 14px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div id="ui">
+            <div>Score: <span id="score">0</span></div>
+            <div>Enemies: <span id="enemies">0</span></div>
+            <div>Health: <span id="health">100</span></div>
+            <div>Time: <span id="gameTime">0</span>s</div>
+            <div>Difficulty: <span id="difficulty">Medium</span></div>
+        </div>
+        <div id="gameOver">
+            <h2>Game Over!</h2>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <p>Press Enter to try again</p>
+            <button onclick="restartGame()">Play Again</button>
+            <button onclick="window.location.href='landing.html'" style="margin-left: 10px; background: #2196F3;">Back to Menu</button>
+        </div>
+        <div id="instructions">
+            Arrow Keys - Move | Mouse - Aim | Left Click - Attack | Space - Pause | R - Reload | Enter - Retry
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html> 
